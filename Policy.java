@@ -5,7 +5,7 @@ public class Policy
    private String firstName;
    private String lastName;
    private int age;
-   private boolean smoker;
+   private String smoker;
    private double height;
    private double weight;
    
@@ -18,13 +18,13 @@ public class Policy
       firstName = "John";
       lastName = "Doe";
       age = 99;
-      smoker = false;
+      smoker = "non-smoker";
       height = 70;
       weight = 200;
    }
    
    //arg constructor (pirate constructor?)
-   public Policy(String policyNum, String provider, String fName, String lName, int howOld, boolean smokerStatus, double howTall, double howHeavy)
+   public Policy(String policyNum, String provider, String fName, String lName, int howOld, String smokerStatus, double howTall, double howHeavy)
    {
       policyNumber = policyNum;
       providerName = provider;
@@ -87,12 +87,12 @@ public class Policy
       return age;
    }
    
-   public void setSmoker(boolean s)
+   public void setSmoker(String s)
    {
       smoker = s;
    }
    
-   public boolean getSmoker()
+   public String getSmoker()
    {
       return smoker;
    }
@@ -133,7 +133,7 @@ public class Policy
          policyPrice += 75;
       }
       
-      if (smoker)
+      if (smoker.equals("smoker"))
       {
          policyPrice += 100;
       }
