@@ -24,9 +24,10 @@ public class Project_Aaron_Tiger
         String firstName;
         String lastName;
         int age;
-        String smoker = "";
+        String smoker;
         double height;
         double weight;
+        
         int numSmoker = 0;
         int numNonSmoker = 0;
         
@@ -37,10 +38,10 @@ public class Project_Aaron_Tiger
             firstName = inputFile.nextLine();
             lastName = inputFile.nextLine();
             age = inputFile.nextInt();
-            smoker = inputFile.nextLine();
+
+            inputFile.nextLine(); //address buffer shenanigans
             
-            inputFile.nextLine(); //consume excess buffer so the double isnt read as a string
-            
+            smoker = inputFile.nextLine();   
             height = inputFile.nextDouble();
             weight = inputFile.nextDouble();
             
@@ -78,7 +79,7 @@ public class Project_Aaron_Tiger
             System.out.println("Policyholder's Height: " + policyHolder.get(i).getHeight());
             System.out.println("Policyholder's Weight: " + policyHolder.get(i).getWeight());
             System.out.printf("Policyholder's BMI: %.2f", policyHolder.get(i).calculateBMI());
-            System.out.printf("\nPolicy Price: $%.2f", policy.get(i).calculatePolicyPrice());
+            System.out.printf("\nPolicy Price: $%.2f", policyHolder.get(i).calculatePolicyPrice());
             System.out.println();
             
             

@@ -75,32 +75,4 @@ public class Policy
    {
       return providerName;
    }
-   
-   /**
-    * calculates the total price of the policy
-    * @return policy price
-    */
-   public double calculatePolicyPrice()
-   {
-      double policyPrice = 600;
-      double BMI = PolicyHolder.calculateBMI();
-      //declaring BMI as a variable saves 1 method call
-      
-      if (PolicyHolder.age > 50)
-      {
-         policyPrice += 75;
-      }
-      
-      if (PolicyHolder.smoker.equals("smoker"))
-      {
-         policyPrice += 100;
-      }
-      
-      if (BMI > 35)
-      {
-         policyPrice += ((BMI - 35) * 20);
-      }
-      
-      return policyPrice;
-   }
 }

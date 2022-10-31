@@ -2,10 +2,10 @@ public class PolicyHolder
 {
    private String firstName;
    private String lastName;
-   public static int age;
-   public static String smoker;
-   public static double height;
-   public static double weight;
+   public int age;
+   public String smoker;
+   public double height;
+   public double weight;
    
    /**
     * no-arg constructor
@@ -168,8 +168,36 @@ public class PolicyHolder
     * calcualtes BMI based on values set in the fields
     * @return the calcuated BMI
     */
-   public static double calculateBMI()
+   public double calculateBMI()
    {
       return ((weight * 703) / (height * height));
    }
+
+      /**
+    * calculates the total price of the policy
+    * @return policy price
+    */
+    public double calculatePolicyPrice()
+    {
+       double policyPrice = 600;
+       double BMI = calculateBMI();
+       //declaring BMI as a variable saves 1 method call
+       
+       if (age > 50)
+       {
+          policyPrice += 75;
+       }
+       
+       if (smoker.equals("smoker"))
+       {
+          policyPrice += 100;
+       }
+       
+       if (BMI > 35)
+       {
+          policyPrice += ((BMI - 35) * 20);
+       }
+       
+       return policyPrice;
+    }
 }
