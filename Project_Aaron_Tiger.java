@@ -15,6 +15,7 @@ public class Project_Aaron_Tiger
         }
 
         ArrayList<Policy> policy = new ArrayList<Policy>();
+        ArrayList<PolicyHolder> policyHolder = new ArrayList<PolicyHolder>();
 
         Scanner inputFile = new Scanner(file); //open the file
         
@@ -62,20 +63,21 @@ public class Project_Aaron_Tiger
                numNonSmoker++;
             }
             
-            policy.add(new Policy(policyNumber, providerName, firstName, lastName, age, smoker, height, weight));
+            policy.add(new Policy(policyNumber, providerName));
+            policyHolder.add(new PolicyHolder(firstName, lastName, age, smoker, height, weight));
         }
         
         for (int i = 0; i < policy.size(); i++)
         {
             System.out.println("\nPolicy Number: " + policy.get(i).getPolicyNumber());
             System.out.println("Provider Name: " + policy.get(i).getProviderName());
-            System.out.println("Policyholder's First Name: " + policy.get(i).getFirstName());
-            System.out.println("Policyholder's Last Name: " + policy.get(i).getLastName());
-            System.out.println("Policyholder's Age: " + policy.get(i).getAge());
-            System.out.println("Policyholder's Smoking Status: " + policy.get(i).getSmoker());
-            System.out.println("Policyholder's Height: " + policy.get(i).getHeight());
-            System.out.println("Policyholder's Weight: " + policy.get(i).getWeight());
-            System.out.printf("Policyholder's BMI: %.2f", policy.get(i).calculateBMI());
+            System.out.println("Policyholder's First Name: " + policyHolder.get(i).getFirstName());
+            System.out.println("Policyholder's Last Name: " + policyHolder.get(i).getLastName());
+            System.out.println("Policyholder's Age: " + policyHolder.get(i).getAge());
+            System.out.println("Policyholder's Smoking Status: " + policyHolder.get(i).getSmoker());
+            System.out.println("Policyholder's Height: " + policyHolder.get(i).getHeight());
+            System.out.println("Policyholder's Weight: " + policyHolder.get(i).getWeight());
+            System.out.printf("Policyholder's BMI: %.2f", policyHolder.get(i).calculateBMI());
             System.out.printf("\nPolicy Price: $%.2f", policy.get(i).calculatePolicyPrice());
             System.out.println();
             
