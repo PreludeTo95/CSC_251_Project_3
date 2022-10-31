@@ -40,7 +40,12 @@ public class PolicyHolder
       weight = howHeavy;
    }
 
-
+   //overriding the default toString() method
+   public String toString()
+   {
+      return (firstName + " " + lastName + " " + age + " " + smoker + " " + height + " " + weight);
+   }
+   
    //getter and setter methods for every attribute
    
    /**
