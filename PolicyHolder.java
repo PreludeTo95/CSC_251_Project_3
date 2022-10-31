@@ -40,6 +40,20 @@ public class PolicyHolder
       weight = howHeavy;
    }
 
+   /**
+    * copy constructor
+    * @param original the PolicyHolder object to be copied
+    */
+    public PolicyHolder(PolicyHolder original)
+    {
+        firstName = original.firstName;
+        lastName = original.lastName;
+        age = original.age;
+        smoker = original.smoker;
+        height = original.height;
+        weight = original.weight;
+    }
+
    //overriding the default toString() method
    public String toString()
    {

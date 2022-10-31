@@ -40,7 +40,7 @@ public class Project_Aaron_Tiger
             age = inputFile.nextInt();
 
             inputFile.nextLine(); //address buffer shenanigans
-            
+
             smoker = inputFile.nextLine();   
             height = inputFile.nextDouble();
             weight = inputFile.nextDouble();
@@ -64,27 +64,25 @@ public class Project_Aaron_Tiger
                numNonSmoker++;
             }
             
-            policy.add(new Policy(policyNumber, providerName));
-            policyHolder.add(new PolicyHolder(firstName, lastName, age, smoker, height, weight));
+            //create a PolicyHolder object then add it to the policyHolder ArrayList
+            PolicyHolder person = new PolicyHolder(firstName, lastName, age, smoker, height, weight);
+            policyHolder.add(person);
+
+            //create the Policy object second because it requires an existing PolicyHolder object, then add it to the policy ArrayList
+            Policy pol = new Policy(policyNumber, providerName, person);
+            policy.add(pol);
         }
         
         for (int i = 0; i < policy.size(); i++)
         {
-            System.out.println("\nPolicy Number: " + policy.get(i).getPolicyNumber());
-            System.out.println("Provider Name: " + policy.get(i).getProviderName());
-            System.out.println("Policyholder's First Name: " + policyHolder.get(i).getFirstName());
-            System.out.println("Policyholder's Last Name: " + policyHolder.get(i).getLastName());
-            System.out.println("Policyholder's Age: " + policyHolder.get(i).getAge());
-            System.out.println("Policyholder's Smoking Status: " + policyHolder.get(i).getSmoker());
-            System.out.println("Policyholder's Height: " + policyHolder.get(i).getHeight());
-            System.out.println("Policyholder's Weight: " + policyHolder.get(i).getWeight());
-            System.out.printf("Policyholder's BMI: %.2f", policyHolder.get(i).calculateBMI());
-            System.out.printf("\nPolicy Price: $%.2f", policyHolder.get(i).calculatePolicyPrice());
-            System.out.println();
-            
-            
+            System.out.println(policy.get(i));
+            System.out.println(policy.get(i).getPolicyHolder());
+            System.out.printf("Policyholder's BMI: %.2f", policy.get(i).getPolicyHolder().calculateBMI());
+            System.out.printf("\nPolicy Price: $%.2f", policy.get(i).getPolicyHolder().calculatePolicyPrice());
+            System.out.println();  
         }
         System.out.println();
+        System.out.println("There were " + Policy.numberOfPolicies + " Policy objects created.");
         System.out.println("The number of policies with a smoker is: " + numSmoker);
         System.out.println("The number of policies with a non-smoker is: " + numNonSmoker);
         inputFile.close(); //close the file 
