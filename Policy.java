@@ -24,6 +24,11 @@ public class Policy
       providerName = provider;
    }
 
+   //overriding the default toString() method
+   public String toString()
+   {
+      return (policyNumber + " " + providerName);
+   }
    
    //getter and setter methods for every attribute
 
