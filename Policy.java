@@ -31,7 +31,11 @@ public class Policy
    //overriding the default toString() method
    public String toString()
    {
-      return (policyNumber + " " + providerName);
+      return 
+      (
+         "Policy number: " + policyNumber + 
+         "\nProvider Name: " + providerName
+      );
    }
    
    //getter and setter methods for every attribute

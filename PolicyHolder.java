@@ -43,7 +43,15 @@ public class PolicyHolder
    //overriding the default toString() method
    public String toString()
    {
-      return (firstName + " " + lastName + " " + age + " " + smoker + " " + height + " " + weight);
+    return 
+    (
+        "First name: " + firstName + 
+        "\nLast name: " + lastName + 
+        "\nAge: " + age + 
+        "\nSmoking status: " + smoker + 
+        "\nHeight: " + height + 
+        "\nWeight: " + weight
+    );
    }
    
    //getter and setter methods for every attribute
